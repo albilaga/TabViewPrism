@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<views:TabView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:TabView.ViewModels;assembly=TabView"
-             xmlns:views="clr-namespace:TabView.Views;assembly=TabView"
-             x:DataType="viewModels:Tab1ViewViewModel"
-             BackgroundColor="Red"
-             x:Class="TabView.Views.Tab1View">
-    <ContentView.Content>
-        <StackLayout>
-            <Label Text="{Binding Title}"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-            <Label Text="test"/>
-        </StackLayout>
-    </ContentView.Content>
-</views:TabView>
+<views:TabViewItem xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:viewModels="clr-namespace:TabView.ViewModels;assembly=TabView"
+                   xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+                   x:DataType="viewModels:Tab1ViewViewModel"
+                   BackgroundColor="Red"
+                   Text="Tab 1"
+                   x:Class="TabView.Views.Tab1View">
+    <StackLayout>
+        <Label Text="{Binding Title}"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+</views:TabViewItem>

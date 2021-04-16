@@ -12,14 +12,7 @@
 
     <Grid>
         <views:TabView TabStripBackgroundColor="Blue" TabStripPlacement="Bottom" x:Name="TabView"
-                        SelectionChanged="TabView_OnSelectionChanged">
-            <!-- <views:TabViewItem Text="Tab 1"> -->
-            <!--     <local:Tab1View x:Name="Tab1View" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Main}" /> -->
-            <!-- </views:TabViewItem> -->
-            <!-- <views:TabViewItem Text="Tab 2"> -->
-            <!--     <local:Tab2View x:Name="Tab2View" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Main}" /> -->
-            <!-- </views:TabViewItem> -->
-        </views:TabView>
+                       SelectionChanged="TabView_OnSelectionChanged"/>
     </Grid>
 
 </ContentPage>

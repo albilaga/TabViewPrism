@@ -1,12 +1,13 @@
 using Prism.Ioc;
 using Prism.Mvvm;
+using Xamarin.CommunityToolkit.UI.Views;
 
 namespace TabView
 {
     public static class IContainerRegistryExtensions
     {
         public static void RegisterTabbedView<TView, TViewModel>(this IContainerRegistry containerRegistry)
-            where TView : Views.TabView
+            where TView : TabViewItem
             where TViewModel : BindableBase
         {
             var viewType = typeof(TView);

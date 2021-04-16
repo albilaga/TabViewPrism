@@ -4,7 +4,6 @@ using Prism;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Xamarin.CommunityToolkit.UI.Views;
-using Xamarin.Forms;
 
 namespace TabView.Views
 {
@@ -29,13 +28,17 @@ namespace TabView.Views
 
         private void TabView_OnSelectionChanged(object sender, TabSelectionChangedEventArgs e)
         {
+            if (e.NewPosition == _oldPosition)
+            {
+                return;
+            }
             // Can not rely on e.old position
-            if (TabView.TabItems[_oldPosition].Content.BindingContext is IActiveAware oldTabAware)
+            if (TabView.TabItems[_oldPosition].Content?.BindingContext is IActiveAware oldTabAware)
             {
                 oldTabAware.IsActive = false;
             }
 
-            if (TabView.TabItems[e.NewPosition].Content.BindingContext is IActiveAware newTabAware)
+            if (TabView.TabItems[e.NewPosition].Content?.BindingContext is IActiveAware newTabAware)
             {
                 newTabAware.IsActive = true;
             }
@@ -56,27 +59,25 @@ namespace TabView.Views
                     return;
                 }
 
+                TabView.TabItems.Clear();
+
                 var tabs = parameters.GetValues<string>(KnownNavigationParameters.CreateTab);
                 foreach (var tab in tabs)
                 {
-                    var view = App.Current.Container.Resolve(typeof(object), tab) as ContentView;
+                    var view = PrismApplicationBase.Current.Container.Resolve(typeof(object), tab) as TabViewItem;
                     if (view is null)
                     {
                         continue;
                     }
 
-                    if (App.Current.Container.Resolve(typeof(BindableBase),
-                        $"{tab}ViewModel") is BindableBase viewModel)
+                    if (PrismApplicationBase.Current.Container.Resolve(typeof(BindableBase),
+                        $"{tab}ViewModel") is BindableBase viewModel && view.Content != null)
                     {
-                        view.BindingContext = viewModel;
+                        view.Content.BindingContext = viewModel;
                     }
-
-                    TabView.TabItems.Add(new TabViewItem
-                    {
-                        Text = tab,
-                        Content = view
-                    });
+                    TabView.TabItems.Add(view);
                 }
+
             }
             catch (Exception e)
             {
