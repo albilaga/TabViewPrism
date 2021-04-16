@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TabView.Views"
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:viewModels="clr-namespace:TabView.ViewModels;assembly=TabView"
+             xmlns:mvvm="http://prismlibrary.com"
+             x:DataType="viewModels:MainViewModel"
+             x:Name="Main"
+             x:Class="TabView.Views.MainPage">
+
+    <Grid>
+        <views:TabView TabStripBackgroundColor="Blue" TabStripPlacement="Bottom" x:Name="TabView"
+                        SelectionChanged="TabView_OnSelectionChanged">
+            <!-- <views:TabViewItem Text="Tab 1"> -->
+            <!--     <local:Tab1View x:Name="Tab1View" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Main}" /> -->
+            <!-- </views:TabViewItem> -->
+            <!-- <views:TabViewItem Text="Tab 2"> -->
+            <!--     <local:Tab2View x:Name="Tab2View" mvvm:ViewModelLocator.AutowirePartialView="{x:Reference Main}" /> -->
+            <!-- </views:TabViewItem> -->
+        </views:TabView>
+    </Grid>
+
+</ContentPage>
