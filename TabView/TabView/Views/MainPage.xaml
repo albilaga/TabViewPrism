@@ -12,7 +12,7 @@
 
     <Grid>
         <views:TabView TabStripBackgroundColor="Blue" TabStripPlacement="Bottom" x:Name="TabView"
-                       SelectionChanged="TabView_OnSelectionChanged"/>
+                       SelectionChanged="TabView_OnSelectionChanged" />
     </Grid>
 
 </ContentPage>

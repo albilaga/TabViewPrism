@@ -1,9 +1,34 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         xmlns:prism="http://prismlibrary.com"
                         x:Class="TabView.App">
     <Application.Resources>
-
+        <ControlTemplate x:Key="MiddleTabControlTemplate">
+            <ImageButton
+                InputTransparent="True"
+                Source="{TemplateBinding CurrentIcon}"
+                Padding="10"
+                HorizontalOptions="Center"
+                BackgroundColor="#FF0000"
+                HeightRequest="60"
+                WidthRequest="60"
+                Margin="6">
+                <ImageButton.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Int32">
+                        <On Platform="iOS" Value="30" />
+                        <On Platform="Android" Value="60" />
+                        <On Platform="UWP" Value="36" />
+                    </OnPlatform>
+                </ImageButton.CornerRadius>
+                <ImageButton.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Android, iOS, UWP">True</On>
+                        <On Platform="macOS">False</On>
+                    </OnPlatform>
+                </ImageButton.IsVisible>
+            </ImageButton>
+        </ControlTemplate>
     </Application.Resources>
 </prism:PrismApplication>

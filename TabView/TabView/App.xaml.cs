@@ -35,6 +35,7 @@ namespace TabView
             InitializeComponent();
             await NavigationService.NavigateAsync(
                 $"{nameof(MainPage)}?{KnownNavigationParameters.CreateTab}={nameof(Tab1View)}" +
+                $"&{KnownNavigationParameters.CreateTab}={nameof(MiddleTabView)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(Tab2View)}");
         }
 
@@ -42,6 +43,7 @@ namespace TabView
         {
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterTabbedView<Tab1View, Tab1ViewViewModel>();
+            containerRegistry.RegisterTabbedView<MiddleTabView, MiddleTabViewViewModel>();
             containerRegistry.RegisterTabbedView<Tab2View, Tab2ViewViewModel>();
         }
 

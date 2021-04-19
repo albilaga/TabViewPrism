@@ -32,6 +32,7 @@ namespace TabView.Views
             {
                 return;
             }
+
             // Can not rely on e.old position
             if (TabView.TabItems[_oldPosition].Content?.BindingContext is IActiveAware oldTabAware)
             {
@@ -71,13 +72,17 @@ namespace TabView.Views
                     }
 
                     if (PrismApplicationBase.Current.Container.Resolve(typeof(BindableBase),
-                        $"{tab}ViewModel") is BindableBase viewModel && view.Content != null)
+                        $"{tab}ViewModel") is BindableBase viewModel)
                     {
-                        view.Content.BindingContext = viewModel;
+                        view.BindingContext = viewModel;
+                        if (view.Content != null)
+                        {
+                            view.Content.BindingContext = viewModel;
+                        }
                     }
+
                     TabView.TabItems.Add(view);
                 }
-
             }
             catch (Exception e)
             {

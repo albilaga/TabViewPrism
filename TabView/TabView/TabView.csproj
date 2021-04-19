@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -11,6 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="Prism.DryIoc.Forms" Version="8.0.0.1909" />
+        <PackageReference Include="Resizetizer.NT" Version="0.2.0" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     </ItemGroup>
@@ -28,5 +30,9 @@
         <DependentUpon>Tab2View.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <SharedImage Include="Resources\Images\ic_add.svg" BaseSize="60,60" />
     </ItemGroup>
 </Project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<views:TabViewItem xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+                   xmlns:viewModels="clr-namespace:TabView.ViewModels;assembly=TabView"
+                   x:Class="TabView.Views.MiddleTabView"
+                   Icon="ic_add.png"
+                   BackgroundColor="Green"
+                   x:DataType="viewModels:MiddleTabViewViewModel"
+                   TapCommand="{Binding TapCommand}"
+                   ControlTemplate="{StaticResource MiddleTabControlTemplate}">
+</views:TabViewItem>
